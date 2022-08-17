@@ -2,7 +2,6 @@ import import_export
 import hashlib
 def signin(name, password):
     data=import_export.pull_data()
-    name = hashlib.sha256(name.encode()).hexdigest()
     password= hashlib.sha256(password.encode()).hexdigest()
     if name in data.keys() :
         return data[name] == password
@@ -11,7 +10,6 @@ def signin(name, password):
         
 def signup(name, password):
     data=import_export.pull_data()
-    name = hashlib.sha256(name.encode()).hexdigest()
     password= hashlib.sha256(password.encode()).hexdigest()
     if name in data.keys() :
         print("name already exists")
