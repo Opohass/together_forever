@@ -1,5 +1,3 @@
-
-import json 
 import import_export
 def signin(name, password):
     data=pull_data()
