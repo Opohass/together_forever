@@ -1,14 +1,10 @@
-
-
 import import_export
+
 def signin(name, password):
     data=import_export.pull_data()
     
     if name in data.keys() :
-        if data[name] == password :
-            return True
-        else :
-            return False
+        return data[name] == password
     else :
         return False
         
@@ -18,5 +14,5 @@ def signup(name, password):
         print("name already exists")
         return False
     else:
-        import_export.push_data({name: password})
-        return True
+        data[name] = password
+        return import_export.push_data(data)

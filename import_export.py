@@ -2,7 +2,7 @@ import json
 def pull_data():
     my_dict = {}
     try:
-        with open('data.json', "r") as f:
+        with open('data.json', "r", encoding='utf-8') as f:
             my_dict = json.load(f)
     except :
         print ("no data found")
@@ -12,7 +12,7 @@ def pull_data():
 def push_data(mydict):
     try:
         with open('data.json', 'w') as f:
-            json.dump(mydict,f)
+            json.dump(mydict,f, indent=4)
         return True
     except:
         print("cant push data")
