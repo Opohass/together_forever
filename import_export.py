@@ -12,7 +12,8 @@ def pull_data():
 def push_data(mydict):
     try:
         with open('data.json', 'w') as f:
-            json.dumps(f)
+            json.dump(mydict,f)
         return True
     except:
+        print("cant push data")
         return False
