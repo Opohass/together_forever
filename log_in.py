@@ -1,7 +1,7 @@
 Options= ["1","2"]
 import login_func
 print ("hello")
-print("enter 1. to login and,2. to sign up")
+print("enter 1. to login and","2. to sign up")
 
 choise = input("Enter your choise: ")
 while choise not in Options:
