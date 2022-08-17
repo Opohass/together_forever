@@ -1,5 +1,6 @@
 Options= ["1","2","3"]
 import login_func
+import clintTest
 print ("hello")
 print("enter \n1. to login and\n2. to sign up \n3.to exit")
 
@@ -11,14 +12,14 @@ while True:
     if choise == "1":
         userName= input("Enter your name: ")
         userpasswd= input("Enter your password: ")
-        if login_func.signin(userName,userpasswd):
+        if clintTest.chek_login(userName,userpasswd):
             print("login successful")
         else: 
             print("login failed")
     elif choise == "2":
         userName= input("Enter your name: ")
         userpasswd= input("Enter your password: ")
-        if login_func.signup(userName,userpasswd):
+        if clintTest.add_login(userName,userpasswd):
             print("signup successful")
         else: 
             print("signup failed")
