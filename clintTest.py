@@ -10,8 +10,10 @@ from matplotlib.font_manager import json_dump
 import socket
 
 import hashlib
-##cinstant 
 
+from .server import HOST
+##cinstant 
+HOST="10.0.0.220"
 file_login_name = 'data.json'
 ##
 class StrogeUntily():
@@ -20,7 +22,7 @@ class StrogeUntily():
     def sendData(data:dict,mesagePost)->str: 
         '''#mesagePost =b"save@sample_file.json@"'''
         try:
-            HOST = "192.168.170.235"  # The server's hostname or IP address
+            #HOST = "192.168.170.235"  # The server's hostname or IP address
             PORT = 65432  # The port used by the server
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((HOST, PORT))
@@ -37,7 +39,7 @@ class StrogeUntily():
     def reciveData(mesagePost)->dict: 
         '''#mesagePost ="get@save@sample_file.json'''
         try:
-            HOST = "192.168.170.235"  # The server's hostname or IP address
+            #HOST = "192.168.170.235"  # The server's hostname or IP address
             PORT = 65432  # The port used by the server
             tempdata=[]
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
