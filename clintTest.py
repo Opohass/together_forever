@@ -11,9 +11,9 @@ import socket
 
 import hashlib
 
-from .server import HOST
+
 ##cinstant 
-HOST="10.0.0.220"
+HOST="127.0.0.1"
 file_login_name = 'data.json'
 ##
 class StrogeUntily():
@@ -25,6 +25,9 @@ class StrogeUntily():
             #HOST = "192.168.170.235"  # The server's hostname or IP address
             PORT = 65432  # The port used by the server
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                sendfile= json.dumps(data).encode('utf-8')   
+                mesagePost.append(sendfile)
+                print(mesagePost)
                 s.connect((HOST, PORT))
                 s.send(mesagePost)
                 sendfile= json.dumps(data).encode('utf-8')    
@@ -35,6 +38,7 @@ class StrogeUntily():
                     s.sendall(mesage)
                 return s.recv(1024) # ok code ==200 false have 401
         except:
+            print("eroor in send data")
             return b"401"
     def reciveData(mesagePost)->dict: 
         '''#mesagePost ="get@save@sample_file.json'''
@@ -53,6 +57,7 @@ class StrogeUntily():
                         break
                 return ((b''.join(tempdata)).decode('utf-8'))
         except:
+            print("eroro in reciveData")
             return b"401"
                 
     def chek_login(username:str, password:str)->bool:
@@ -79,6 +84,7 @@ class StrogeUntily():
                 print("user is login another computer")
                 return 404
         except:
+            print("faild to ")
             return b"401"
     def add_login(username:str, password:str)->None:
         #online
@@ -89,6 +95,7 @@ class StrogeUntily():
             data={hash_username:hash_password}
             return StrogeUntily.sendData(data,mesagePost)
         except:
+            print("faild to ")
             return b"401"
     def add_login_offline(username:str, password:str)->None:
         hash_username= hashlib.sha256(username.encode()).hexdigest()
